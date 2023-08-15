@@ -2,7 +2,7 @@
   {
     "title": "VarInt Decoding is slow! 🐢",
     "description": "Let's optimize VarInt decoding by 48x 🚀",
-    "imageURL": "/varint2.png",
+    "imageURL": "../varint2.png",
     "href": "./varint_decode",
     "isPinned": true
   }
