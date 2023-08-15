@@ -40,15 +40,4 @@ export default function Page(props: PageProps) {
       {props.footer}
     </>
   );
-  // return <>
-  //   <h2 class="py-2 text"></h2>
-  // </>;
-  // return <>
-  //             <h2 class="py-2 text-2xl font-bold text-center">
-  //           Recent Articles
-  //         </h2>
-  //         <div class="py-2 justify-center flex flex-wrap gap-x-2 gap-y-2">
-  //           {articles.filter((_, i) => i < 3).map((x) => <Card {...x} />)}
-  //         </div>
-  //       </div></>
 }
