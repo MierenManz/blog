@@ -8,6 +8,7 @@
     "jsxImportSource": "preact"
   },
   "tasks": {
+    "install": "deno run -Ar https://deno.land/x/pyro/install.ts",
     "build": "pyro build; cp server.ts build/mod.ts"
   }
 }

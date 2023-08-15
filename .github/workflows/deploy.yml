@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Install pyro
+        run: "deno task install"
+
       - name: Build step
         run: "deno task build" # 📝 Update the build command(s) if necessary
 
