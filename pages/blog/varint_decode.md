@@ -1,6 +1,6 @@
 ---
 title: VarInt Decoding is slow! 🐢
-description: 
+description: Let's make it 48x faster! 🚀
 index: 1
 hide_navbar: true
 ---
