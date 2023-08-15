@@ -439,6 +439,11 @@ export function jsDecodeV4(input: Uint8Array): bigint {
 We eliminated one more branch call which saved us another 2 ns per iteration.
 Which get's us from 31ns down to 28ns.
 
+## Benchmark
+
+![Benchmark Results](../../varint_decode/bench_result.png) The benchmark code
+can be found on [Github](https://github.com/mierenmanz/varint_bench)
+
 ## Summary
 
 In conclusion it's possible to make this decoding algoritm super fast in
