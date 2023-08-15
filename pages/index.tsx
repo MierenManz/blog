@@ -2,8 +2,7 @@ import type { PageProps } from "../deps.ts";
 
 export const config = {
   title: "Home",
-  description:
-    "Pyro was designed from the ground up to be no-config and incredibly fast.",
+  description: "The website of your favorite idiot!",
 };
 
 export default function Page(props: PageProps) {
