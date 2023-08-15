@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "preact": "https://esm.sh/preact@10.16.0",
+    "preact/": "https://esm.sh/preact@10.16.0/"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "tasks": {
+    "build": "pyro build; cp server.ts build/mod.ts"
+  }
+}

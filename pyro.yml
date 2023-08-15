@@ -1,0 +1,16 @@
+title: SKye's Blog
+copyright: |-
+  Copyright © 2023 Skye
+hide_navbar: true
+header:
+  left:
+    - Blog /blog
+    - Rants /ranting
+footer:
+  Quick Navigation:
+    - Main /
+    - Blog /blog
+    - Rants /ranting
+  Other Sites:
+   - Github https://github.com/mierenmanz
+   - Support Me https://github.com/sponsors/MierenManz
