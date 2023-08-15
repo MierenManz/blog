@@ -31,12 +31,12 @@ decoded as part of the integer value.
 
 It is actually not. Decoding 32-bit integers is actually quite fast in
 JavaScript. This is because bitwise operations on a `number` are usually done as
-machine code instructions on a 32-bit number internally [[SHOW u32 VARINT
-BENCHMARK HERE]]. The problem comes from the 64-bit numbers which cannot be done
-with a `number` but have to be done with a `BigInt`. `BigInt` is really handy
-for when you need integers of a arbitrary precision like `420 ** 69`. But now
-the problem is not with storing values bigger than 32-bits. But with the fact
-that operations on a `BigInt` are really really slow.
+machine code instructions on a 32-bit number internally. The problem comes from
+the 64-bit numbers which cannot be done with a `number` but have to be done with
+a `BigInt`. `BigInt` is really handy for when you need integers of a arbitrary
+precision like `420 ** 69`. But now the problem is not with storing values
+bigger than 32-bits. But with the fact that operations on a `BigInt` are really
+really slow.
 
 This is Deno's standard library function for decoding a 64-bit varint:
 
