@@ -4,9 +4,8 @@ import type { PageProps } from "../../deps.ts";
 import articles from "./_posts.json" assert { type: "json" };
 
 export const config = {
-  title: "Home",
-  description:
-    "Pyro was designed from the ground up to be no-config and incredibly fast.",
+  title: "Blog",
+  description: "The weird blog of Skye!",
   hideNavbar: true,
 };
 
@@ -16,7 +15,7 @@ export default function Page(props: PageProps) {
   return (
     <>
       {props.header}
-      <div class="h-screen h-min-screen w-screen bg-light dark:bg-dark dark:text-light">
+      <div class="h-fit h-min-screen bg-light dark:bg-dark dark:text-light">
         <h1 class="py-2 text-4xl font-bold text-center">Blog!</h1>
         <main class="py-2 w-2/3 mx-auto">
           <div class="py-3">

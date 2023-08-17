@@ -9,7 +9,7 @@ export default function Page(props: PageProps) {
   return (
     <>
       {props.header}
-      <div class="h-screen h-min-screen w-screen bg-light dark:bg-dark dark:text-light">
+      <div class="h-screen h-min-screen bg-light dark:bg-dark dark:text-light">
         <h1 class="py-2 text-4xl font-bold text-center">
           The Website of your favorite idiot!
         </h1>
