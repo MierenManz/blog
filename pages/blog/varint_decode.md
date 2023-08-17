@@ -261,6 +261,31 @@ These 3 lines allocate a small buffer that we use to cast the 2 u32's into a
 `BigInt`. What if we move that allocation to the global scope. in our case, we
 don't need separate buffers per call, so we can hoist the allocation.
 
+```diff
+- export function jsDecodeV1(input: Uint8Array): bigint {
+-   const ab = new ArrayBuffer(8);
+-   const u32View = new Uint32Array(ab);
+-   const u64View = new BigUint64Array(ab);
+
++ const AB = new ArrayBuffer(8);
++ const U32_VIEW = new Uint32Array(AB);
++ const U64_VIEW = new BigUint64Array(AB);
++ export function jsDecodeV2(input: Uint8Array): bigint {
++   U64_VIEW[0] = 0n;
+
+
+-       u32View[0] = intermediate;
++       U32_VIEW[0] = intermediate;
+
+
+-       u32View[Number(i > 4)] = intermediate;
++       U32_VIEW[Number(i > 4)] = intermediate;
+
+
+-   return u64View[0];
++   return U64_VIEW[0];
+```
+
 ```ts
 const AB = new ArrayBuffer(8);
 const U32_VIEW = new Uint32Array(AB);
@@ -327,6 +352,17 @@ need to loop more than `length` even if `input` is mutated. This small
 optimization also gives us another 3.8ns per iteration. Getting us to 31ns per
 iteration
 
+```diff
+- export function jsDecodeV2(input: Uint8Array): bigint {
++ export function jsDecodeV3(input: Uint8Array): bigint {
+
+
+-   for (let i = 0; i < input.length; i++) {
++   const length = input.length;
++
++   for (let i = 0; i < length; i++) {
+```
+
 ```ts
 const AB = new ArrayBuffer(8);
 const U32_VIEW = new Uint32Array(AB);
@@ -385,6 +421,28 @@ Currently we got a nasty `if else` in our code. The `if` branch if really
 important. But is there anything we can do about the `else`? YES! We can do
 something about it. What if we change it so that we unconditionally add 7 to
 `position`.
+
+```diff
+5c5
+- export function jsDecodeV3(input: Uint8Array): bigint {
++ export function jsDecodeV4(input: Uint8Array): bigint {
+
+
+-     // if the intermediate value is full. Write it to the view
+-     // Else just add 7 to the position
++     // If the intermediate value is full. Write it to the view
+
+
+-       // set `positon` to 3 because we have written 3 bits
+-       position = 3;
+-     } else {
+-       position += 7;
+
++       // set `position` to -4 because later 7 will be added, making it 3
++       position = -4;
++ 
++     position += 7;
+```
 
 ```ts
 const AB = new ArrayBuffer(8);
