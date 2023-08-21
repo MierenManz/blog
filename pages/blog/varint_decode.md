@@ -227,7 +227,7 @@ export function jsDecodeV1(input: Uint8Array): bigint {
     // then write the intermediate value to the empty "slot"
     if ((byte & 0x80) !== 0x80) {
       // if the first slot is taken. Take the second slot
-      u32View[Number(i > 4)] = intermediate;
+      u32View[Number(i > 3)] = intermediate;
       break;
     }
   }
@@ -278,8 +278,8 @@ don't need separate buffers per call, so we can hoist the allocation.
 +       U32_VIEW[0] = intermediate;
 
 
--       u32View[Number(i > 4)] = intermediate;
-+       U32_VIEW[Number(i > 4)] = intermediate;
+-       u32View[Number(i > 3)] = intermediate;
++       U32_VIEW[Number(i > 3)] = intermediate;
 
 
 -   return u64View[0];
@@ -326,7 +326,7 @@ export function jsDecodeV2(input: Uint8Array): bigint {
     // then write the intermediate value to the empty "slot"
     if ((byte & 0x80) !== 0x80) {
       // if the first slot is taken. Take the second slot
-      U32_VIEW[Number(i > 4)] = intermediate;
+      U32_VIEW[Number(i > 3)] = intermediate;
       break;
     }
   }
@@ -405,7 +405,7 @@ export function jsDecodeV3(input: Uint8Array): bigint {
     // then write the intermediate value to the empty "slot"
     if ((byte & 0x80) !== 0x80) {
       // if the first slot is taken. Take the second slot
-      U32_VIEW[Number(i > 4)] = intermediate;
+      U32_VIEW[Number(i > 3)] = intermediate;
       break;
     }
   }
@@ -484,7 +484,7 @@ export function jsDecodeV4(input: Uint8Array): bigint {
     // then write the intermediate value to the empty "slot"
     if ((byte & 0x80) !== 0x80) {
       // if the first slot is taken. Take the second slot
-      U32_VIEW[Number(i > 4)] = intermediate;
+      U32_VIEW[Number(i > 3)] = intermediate;
       break;
     }
   }
