@@ -15,7 +15,7 @@ export default function Page(props: PageProps) {
   return (
     <>
       {props.header}
-      <div class="h-fit h-min-screen bg-light dark:bg-dark dark:text-light">
+      <div class="h-screen h-min-screen h-max-fit bg-light dark:bg-dark dark:text-light">
         <h1 class="py-2 text-4xl font-bold text-center">Blog!</h1>
         <main class="py-2 w-2/3 mx-auto">
           <div class="py-3">
