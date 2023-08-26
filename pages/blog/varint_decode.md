@@ -423,7 +423,6 @@ something about it. What if we change it so that we unconditionally add 7 to
 `position`.
 
 ```diff
-5c5
 - export function jsDecodeV3(input: Uint8Array): bigint {
 + export function jsDecodeV4(input: Uint8Array): bigint {
 
